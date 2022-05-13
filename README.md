@@ -28,7 +28,7 @@ I know almost nothing about 3D graphics and this is a beguinner project. Therefo
 - There are templates, double pointers and 2D arrays everywhere in the matrix and vector header files.
 - I didn't fully understood some of the algorithms and matrices. For example the __rotation matrices__.
 
-It just works, but it's not pretty or readable.
+It just works, but it's not pretty, nor readable.
 
 ## Dependencies
 
