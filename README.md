@@ -9,7 +9,7 @@ I used java, processing tutorials from TheCodingTrain and translated it to C++ a
 2. [3D Rendering with Rotation and Projection](https://www.youtube.com/watch?v=p4Iz0XJY-Qk)
 
 **Wikipedia Page for Rotation Matrices:**
-[Rotation Matrix](https://en.wikipedia.org/wiki/Rotation_matrix)
+- [Rotation Matrix](https://en.wikipedia.org/wiki/Rotation_matrix)
 
 ## WARNING
 
