@@ -18,11 +18,12 @@ A couple of them contain namespaces to separate the code, and there are function
 
 ## WARNING
 
-I don't know much about 3D graphics and this is a beguinner project. Therefore this are the issues:
+I know almost nothing about 3D graphics and this is a beguinner project. Therefore this are the issues:
 
 - The code is a mess and not well documented
 - The performance is garbage
 - There are templates, double pointers and 2D arrays everywhere in the matrix and vector header files.
+- I didn't fully understood some of the algorithms and matrices. For example the __rotation matrices__.
 
 It just works, but it's not pretty or readable.
 
