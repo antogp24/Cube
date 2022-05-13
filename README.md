@@ -27,7 +27,7 @@ I know almost nothing about 3D graphics and this is a beguinner project. Therefo
 
 It just works, but it's not pretty or readable.
 
-## How to run the code
+## Dependencies
 
 
 You need a C++ toolchain with a compiler and linker, such as MSVC, g++, clang, etc. You also need either download and link the SFML binaries statically or dynamically. I got lazy and used my linux package manager, hence why my makefile doesn't set the include path for the SFML library.
