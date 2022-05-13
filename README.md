@@ -15,14 +15,14 @@ A rotating 3D cube made using C++, SFML and matrix multiplication.
 ## Structure
 
 There is only one translation unit (.cpp file), and the code is divided into header files with utilities for matrices, vectors, shapes, etc.
-A couple of them contain namespaces to separate the code, and there are functions that return 2D arrays `float matrix[r][c]`, in form of double pointers `float** toReturn`. This is probably why the code is slow, because there is a lot of jumping in memory due to the use of heap allocated 2D arrays, used to represent vectors and matrices. TheCodingTrain, who used java, didn't have this inconvenience of dealing with double pointers, template functions, and multiple overloads. I had multiple crashes because of accidentally accessing out of bound indeces in the arrays, and it was a nightmare. I am so done with this project, but I learned a lot of C++ from it.
+A couple of them contain namespaces to separate specific definitions/symbols in scopes, and there are functions that return 2D arrays `float matrix[r][c]`, in form of double pointers `float** toReturn`. This is probably why the code is slow, because there is a lot of jumping in memory due to the use of heap allocated 2D arrays, used to represent vectors and matrices. TheCodingTrain, who used java, didn't have this inconvenience of dealing with double pointers, template functions, and multiple overloads. I had multiple crashes because of accidentally accessing out of bound indeces in the arrays, and it was a nightmare. I am so done with this project, but I learned a lot of C++ from it.
 
 ## WARNING
 
 I know almost nothing about 3D graphics and this is a beguinner project. Therefore this are the issues:
 
-- The code is a mess and not well documented
-- The performance is garbage
+- The code is a mess and not well documented.
+- The performance is garbage.
 - There are templates, double pointers and 2D arrays everywhere in the matrix and vector header files.
 - I didn't fully understood some of the algorithms and matrices. For example the __rotation matrices__.
 
