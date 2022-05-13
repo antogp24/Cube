@@ -17,7 +17,18 @@ A rotating 3D cube made using C++, SFML and matrix multiplication.
 ## Structure
 
 There is only one translation unit, or _`.cpp` file_, and the code is divided into header files with utilities for matrices, vectors, shapes, etc.
-A couple of them contain namespaces to separate specific definitions/symbols in scopes, and there are functions that return 2D arrays `float matrix[r][c]`, in form of double pointers `float** toReturn`. This is probably why the code is slow, because there is a lot of jumping in memory due to the use of heap allocated 2D arrays, used to represent vectors and matrices. TheCodingTrain, who used java, didn't have this inconvenience of dealing with double pointers, template functions, and multiple overloads. I had multiple crashes because of accidentally accessing out of bound indeces in the arrays, and it was a nightmare. I am so done with this project, but I learned a lot of C++ from it.
+A couple of them contain namespaces to separate specific definitions/symbols in scopes, and there are functions that return 2D arrays `float matrix[r][c]`, in form of double pointers `float** toReturn`.
+
+The folder `math3D` contains the header files that were coded with the help of TheCodingTrain tutorials. `math3D.h` contains all the `.hpp` files in the respective folder.
+
+- `shapes.hpp` contains a namespace with helper functions to draw shapes with SFML.
+- `ND_arrays.hpp` contains a namespace with a helper function to delete heap allocated 2D arrays. I should have made the oposite function to create a 2D array, but got lazy and did that manually for the other header files.
+- `window.hpp` has a struct with variables for the window widht, height, and the half of each.
+- `matrices.hpp` has a namespace with 2D float arrays that represent matrices used for rotations. It also has helper functions for matrix multiplication, and to log matrices. Unfortunately the projectionPersepctive matrix doesn't work as expected. Im done with debugging so I won't fix it for the time being.
+- `vector.hpp` has a _vec3 class_ with members used for 3D vector coordinates, and a function that returns a heap allocated 2D float array with the (x,y,z) values.
+
+## Performance
+The code is slow, because there is a lot of jumping in memory due to the use of heap allocated 2D arrays, used to represent vectors and matrices. TheCodingTrain, who used java, didn't have this inconvenience of dealing with double pointers, template functions, and multiple overloads. I had multiple crashes because of accidentally accessing out of bound indeces in the arrays, and it was a nightmare. I am so done with this project, but I learned a lot of C++ from it. Next time I will use a linear algebra library or framework, or maybe make my own.
 
 ## WARNING
 
@@ -32,6 +43,5 @@ I know almost nothing about 3D graphics and this is a beguinner project. Therefo
 It just works, but it's not pretty, nor readable.
 
 ## Dependencies
-
 
 You need a C++ toolchain with a compiler and linker, such as MSVC, g++, clang, etc. You also need to download the SFML binaries of your respective operating system and compiler, and link statically or dynamically, according to your personal preference. I got lazy and used my linux package manager, hence why my makefile doesn't set the include path for the SFML library. **Don't use my makefile** unless you are using the same setup as mine.
