@@ -16,7 +16,7 @@ A rotating 3D cube made using C++, SFML and matrix multiplication.
 
 ## Structure
 
-There is only one translation unit, or _`.cpp` file_, and the code is divided into header files with utilities for matrices, vectors, shapes, etc.
+There is only one translation unit, or `.cpp` file, and the code is divided into header files with utilities for matrices, vectors, shapes, etc.
 A couple of them contain namespaces to separate specific definitions/symbols in scopes, and there are functions that return 2D arrays `float matrix[r][c]`, in form of double pointers `float** toReturn`.
 
 The folder `math3D` contains the header files that were coded with the help of TheCodingTrain tutorials. `math3D.h` contains all the `.hpp` files in the respective folder.
