@@ -14,7 +14,7 @@ I used java, processing tutorials from TheCodingTrain and translated it to C++ a
 ## Structure
 
 There is only one translation unit (.cpp file), and the code is divided into header files with utilities for matrices, vectors, shapes, etc.
-A couple of them contain namespaces to separate the code, and there are functions that return 2D arrays `float matrix[r][c]`, in form of double pointers `float** toReturn`. This is probably why the code is slow, because there is a lot of jumping in memory due to the use of heap allocated 2D arrays, used to represent vectors and matrices. TheCodingTrain, who used java, didn't have this inconvenience of dealing with double pointers, template functions, and multiple overloads. I had multiple crashes because of trying to access out of bound indeces in the arrays, and it was a nightmare. I am so done with this project, but I learned a lot of C++ from it.
+A couple of them contain namespaces to separate the code, and there are functions that return 2D arrays `float matrix[r][c]`, in form of double pointers `float** toReturn`. This is probably why the code is slow, because there is a lot of jumping in memory due to the use of heap allocated 2D arrays, used to represent vectors and matrices. TheCodingTrain, who used java, didn't have this inconvenience of dealing with double pointers, template functions, and multiple overloads. I had multiple crashes because of accidentally accessing out of bound indeces in the arrays, and it was a nightmare. I am so done with this project, but I learned a lot of C++ from it.
 
 ## WARNING
 
