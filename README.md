@@ -25,6 +25,7 @@ I know almost nothing about 3D graphics and this is a beguinner project. Therefo
 
 - The code is a mess and not well documented.
 - The performance is garbage.
+- No use of delta time to make the speed framerate-independent.
 - There are templates, double pointers and 2D arrays everywhere in the matrix and vector header files.
 - I didn't fully understood some of the algorithms and matrices. For example the __rotation matrices__.
 
