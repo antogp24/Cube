@@ -4,7 +4,7 @@ I used java, processing tutorials from TheCodingTrain and translated it to C++ a
 
 ## Links
 
-**Java Tutorials with Processing:**
+**Software Rendered 3D in Java Tutorials with Processing:**
 1. [Matrix Multiplication for 3D Rendering](https://www.youtube.com/watch?v=tzsgS19RRc8)
 2. [3D Rendering with Rotation and Projection](https://www.youtube.com/watch?v=p4Iz0XJY-Qk)
 
