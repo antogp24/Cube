@@ -33,4 +33,4 @@ It just works, but it's not pretty, nor readable.
 ## Dependencies
 
 
-You need a C++ toolchain with a compiler and linker, such as MSVC, g++, clang, etc. You also need either download and link the SFML binaries statically or dynamically. I got lazy and used my linux package manager, hence why my makefile doesn't set the include path for the SFML library.
+You need a C++ toolchain with a compiler and linker, such as MSVC, g++, clang, etc. You also need to download the SFML binaries of your respective operating system and compiler, and link statically or dynamically, according to your personal preference. I got lazy and used my linux package manager, hence why my makefile doesn't set the include path for the SFML library. **Don't use my makefile** unless you are using the same setup as mine.
