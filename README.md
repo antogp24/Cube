@@ -38,6 +38,8 @@ The folder `math3D` contains the header files that were coded with the help of t
 
 - `window.hpp` has a struct with variables for the window widht, height, and the half of each.
 
+- `frametimer.hpp` has a class with a function that measures and returns the time between frames in miliseconds. This allows to implement _delta time_ and make the rotations consistent, and framerate-independent.
+
 - `matrices.hpp` has a namespace with `Matrix` instances used for projection and rotations. It also has helper functions for matrix multiplication, and to log matrices. I removed the perspective projection, but with the cleanup I could probably implement it this time.
 
 - `vector.hpp` has a _vector class_ with members used for 3D vector coordinates. It overloads the `operator()` to be used as an array. Instead of writing `v[0]`, you would write `v(0)`.
