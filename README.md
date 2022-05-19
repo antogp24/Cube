@@ -15,8 +15,8 @@ A rotating 3D cube made using C++, SFML and matrix multiplication.
 - [Rotation Matrix](https://en.wikipedia.org/wiki/Rotation_matrix)
 
 **2D array mapping**
--[Beginner C++ Game Programming DirectX [2D Arrays / Circular Dependency] Tutorial 21](https://www.youtube.com/watch?v=Zbw58vTotok&ab_channel=ChiliTomatoNoodle)
--[Multidimensional arrays are evil - Article](http://www.cplusplus.com/forum/articles/17108/)
+- [Beginner C++ Game Programming DirectX [2D Arrays / Circular Dependency] Tutorial 21](https://www.youtube.com/watch?v=Zbw58vTotok&ab_channel=ChiliTomatoNoodle)
+- [Multidimensional arrays are evil - Article](http://www.cplusplus.com/forum/articles/17108/)
 
 ## WARNING
 
