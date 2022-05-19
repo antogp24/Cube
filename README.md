@@ -23,8 +23,6 @@ A rotating 3D cube made using C++, SFML and matrix multiplication.
 I know almost nothing about 3D graphics and this is a beguinner project. Therefore this are the issues:
 
 - Some of the code is a mess and not well documented.
-- The performance is garbage.
-- No use of delta time to make the speed framerate-independent.
 - I didn't fully understood some of the matrices. For example the __rotation matrices__ are hard.
 
 ## Structure
@@ -32,12 +30,16 @@ I know almost nothing about 3D graphics and this is a beguinner project. Therefo
 There is only one translation unit, or `.cpp` file, and the code is divided into header files with utilities for matrices, vectors, shapes, etc.
 A couple of them contain namespaces to separate specific definitions/symbols in scopes, and I removed the need of using 2D arrays and double pointers by abstracting away a one-dimensional array that represents a 2D array, in a class called `Matrix`.
 
-The folder `math3D` contains the header files that were coded with the help of TheCodingTrain tutorials. `math3D.h` contains all the `.hpp` files in the respective folder.
+The folder `math3D` contains the header files that were coded with the help of the mentioned tutorials. `math3D.h` contains all the `.hpp` files in the respective folder.
 
 - `shapes.hpp` contains a namespace with helper functions to draw shapes with SFML.
+
 - `matrix.hpp` contains a matrix class with a scoped-heap-allocated array. It overloads the `operator()` to be used as a 2D array (which in reality is a one-dimensional array). Instead of writing `projection[0][0]`, you would write `projection(0,0)`.
+
 - `window.hpp` has a struct with variables for the window widht, height, and the half of each.
+
 - `matrices.hpp` has a namespace with `Matrix` instances used for projection and rotations. It also has helper functions for matrix multiplication, and to log matrices. I removed the perspective projection, but with the cleanup I could probably implement it this time.
+
 - `vector.hpp` has a _vector class_ with members used for 3D vector coordinates. It overloads the `operator()` to be used as an array. Instead of writing `v[0]`, you would write `v(0)`.
 
 ## Dependencies
