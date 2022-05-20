@@ -3,7 +3,7 @@ A rotating 3D cube made using C++, SFML and matrix multiplication.
 
 - I used java, [processing](https://processing.org/) tutorials from [TheCodingTrain](https://www.youtube.com/c/TheCodingTrain) and translated them to C++ and [SFML](https://www.sfml-dev.org/).
 
-![CUBE](cube.png)
+![CUBE](Cube.png)
 
 ## Links
 
