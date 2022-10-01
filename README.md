@@ -3,7 +3,7 @@ A rotating 3D cube made using C, Raylib and matrix multiplication.
 
 - I used java, [processing](https://processing.org/) tutorials from [TheCodingTrain](https://www.youtube.com/c/TheCodingTrain) and translated them to C and [Raylib](https://www.raylib.com/).
 
-![CUBE](Cube.png)
+![CUBE](cube.png)
 
 ## Links
 
