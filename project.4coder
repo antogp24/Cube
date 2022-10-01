@@ -1,0 +1,48 @@
+version(1);
+project_name = "Proyecto Internal Matematica NM";
+
+patterns = {
+    "*.c",
+    "*.cpp",
+    "*.h",
+    "*.hpp",
+    "*.bat",
+    "*.4coder",
+};
+blacklist_patterns = {
+    ".*",
+};
+load_paths_custom = {
+    {"."},
+};
+load_paths = {
+    { { {".", .relative = true, .recursive = true } }, .os = "win"  },
+};
+
+build = "build.bat";
+run   = "run.bat";
+clean = "clean.bat";
+
+command_list = {
+	
+    { .name = "Build_Command",
+        .out = "*compilation*", .footer_panel = true, .save_dirty_files = true,
+        .cmd = { {"build.bat", .os ="win" },
+        }, },
+    
+    { .name = "Run_Command",
+        .out = "*compilation*", .footer_panel = true, .save_dirty_files = true,
+        .cmd = { {"run.bat", .os ="win" },
+        }, },
+    
+    { .name = "Clean_Command",
+        .out = "*compilation*", .footer_panel = true, .save_dirty_files = true,
+        .cmd = { {"clean.bat", .os ="win" },
+        }, },
+    
+};
+
+fkey_command[5] = "Build_Command";
+fkey_command[4] = "Run_Command";
+fkey_command[6] = "Clean_Command";
+
