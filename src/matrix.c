@@ -1,44 +1,35 @@
-#include <math3D/matrix.h>
-#include <math3D/vector.h>
-#include <stdio.h>
-
-/// Indexing them easily
-/// ---------------------------------------------------------------------- ///
-
-float *m3Ind(Matrix3 *matrix, int i, int j) {
-    return &(matrix->arr[3 * i + j]);
-}
+#include "cube.h"
 
 /// Useful Matrices
 /// ---------------------------------------------------------------------- ///
 
-void matrices_update(Vector *angles, Matrix3 *Rx, Matrix3 *Ry, Matrix3 *Rz, float dt) {
-    float aX = angles->x * dt;
-    float aY = angles->y * dt;
-    float aZ = angles->z * dt;
+void m3_update_rotation_matrices(RunData *rd, float dt) {
+    float angleX = rd->rv->x * dt;
+    float angleY = rd->rv->y * dt;
+    float angleZ = rd->rv->z * dt;
     
-    // Only update the ones that are necessary
+    // Only updating the indeces that are not constant.
     
-    *m3Ind(Rx, 1, 1) =  COS(aX);
-    *m3Ind(Rx, 1, 2) = -SIN(aX);
-    *m3Ind(Rx, 2, 1) =  SIN(aX);
-    *m3Ind(Rx, 2, 2) =  COS(aX);
+    m3_index(rd->Rx->arr, 1, 1) =  COS(angleX);
+    m3_index(rd->Rx->arr, 1, 2) = -SIN(angleX);
+    m3_index(rd->Rx->arr, 2, 1) =  SIN(angleX);
+    m3_index(rd->Rx->arr, 2, 2) =  COS(angleX);
     
-    *m3Ind(Ry, 0, 0) =  COS(aY);
-    *m3Ind(Ry, 0, 2) = -SIN(aY);
-    *m3Ind(Ry, 2, 0) =  SIN(aY);
-    *m3Ind(Ry, 2, 2) =  COS(aY);
+    m3_index(rd->Ry->arr, 0, 0) =  COS(angleY);
+    m3_index(rd->Ry->arr, 0, 2) = -SIN(angleY);
+    m3_index(rd->Ry->arr, 2, 0) =  SIN(angleY);
+    m3_index(rd->Ry->arr, 2, 2) =  COS(angleY);
     
-    *m3Ind(Rz, 0, 0) =  COS(aZ);
-    *m3Ind(Rz, 0, 1) = -SIN(aZ); 
-    *m3Ind(Rz, 1, 0) =  SIN(aZ);
-    *m3Ind(Rz, 1, 1) =  COS(aZ); 
+    m3_index(rd->Rz->arr, 0, 0) =  COS(angleZ);
+    m3_index(rd->Rz->arr, 0, 1) = -SIN(angleZ); 
+    m3_index(rd->Rz->arr, 1, 0) =  SIN(angleZ);
+    m3_index(rd->Rz->arr, 1, 1) =  COS(angleZ); 
 }
 
 /// Matrix Logging
 /// ---------------------------------------------------------------------- ///
 
-void matrix_log(Matrix3 *matrix) {
+void m3_log(Matrix3 *matrix) {
     
     printf("   3x3\n");
     printf("---------\n");
@@ -46,7 +37,7 @@ void matrix_log(Matrix3 *matrix) {
     for (int r = 0; r < 3; r++) {
         printf("[ ");
         for (int c = 0; c < 3; c++) {
-            printf("%f ", *m3Ind(matrix, r, c));
+            printf("%f ", m3_index(matrix, r, c));
         }
         printf("]");
         printf("\n");
@@ -57,7 +48,7 @@ void matrix_log(Matrix3 *matrix) {
 /// Matrix Multiplication Function
 /// ---------------------------------------------------------------------- ///
 
-Vector matmul(Matrix3 *matrix, Vector *vec) {
+Vector m3_vector_multiplication(Matrix3 *matrix, Vector *vec) {
     Vector transformed = {0};
     
     for (int m_r = 0; m_r < 3; m_r++) {
@@ -70,8 +61,8 @@ Vector matmul(Matrix3 *matrix, Vector *vec) {
             
             // Each axis in the matrix is multipied
             // in each row is multiplied by the 
-            // corresponding axis of the Vector
-            sum += *m3Ind(matrix, m_r, m_c) * vec->arr[m_c];
+            // corresponding axis of the vector
+            sum += m3_index(matrix->arr, m_r, m_c) * vec->arr[m_c];
         }
         // The current row and column of the matrix is the sum
         transformed.arr[m_r] = sum;

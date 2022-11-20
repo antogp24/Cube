@@ -1,2 +1,2 @@
 @echo off
-del *.o
+del build\*.o

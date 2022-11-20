@@ -1,3 +1,3 @@
 @echo off
-bin\cube.exe
+build\cube.exe
 

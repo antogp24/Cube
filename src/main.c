@@ -1,16 +1,16 @@
-#include <stdio.h>
-#include <raylib.h>
-#include "math3D.h"
-#include "debug.h"
-#include "input.h"
-#include "rotate.h"
-#include "settings.h"
+#include "cube.h"
+#include "cube_settings.h"
 
 int main(void) {
     SetConfigFlags(FLAG_WINDOW_RESIZABLE);
     InitWindow(WIN_X, WIN_Y, "Rotating Cube");
     SetTargetFPS(60);
-    RotType rt = ROT_ALL;
+    RotType rt = ROTATION_TYPE_ALL;
+    RunData rd = {0};
+    Vector  rv = { aX, aY, aZ };
+    Vector2 origin = { WIN_X/2, WIN_Y/2 };
+    Vector2 origin_offset = {0};
+    Color cube_color = WHITE;
     
     Vector points[N_POINTS] = {
         // First Face
@@ -43,48 +43,55 @@ int main(void) {
         0,        0,       1,
     };
     
+    rd.pnts = (Vector *)points;
+    rd.rv =   (Vector *)&rv;
+    rd.Rx =   (Matrix3*)&Rx;
+    rd.Ry =   (Matrix3*)&Ry;
+    rd.Rz =   (Matrix3*)&Rz;
+    
     // Game Loop
-    // ------------------------------------------------------------------------- //
-    while (!WindowShouldClose() && !IsKeyPressed(KEY_ESCAPE)) {
-        
-        float dt = GetFrameTime();
-        matrices_update(&rv, &Rx, &Ry, &Rz, dt);
+    //~
+    while (!WindowShouldClose()) {
         
         // Logic (Every Frame)
-        // ------------------------------------------------------------------------- //
+        //~
         
-        Vector movement = { 0, 0, 0 };
-        rt = rotateManage(rt, points);
-        Input(&rv, &movement, points);
+        float dt = GetFrameTime();
+        m3_update_rotation_matrices(&rd, dt);
         
-        Vector transformed[N_POINTS];
+        origin.x = GetScreenWidth()/2 + origin_offset.x;
+        origin.y = GetScreenHeight()/2 + origin_offset.y;
+        
+        Vector movement = {0};
+        rt = input_manage_rotations(rt, points);
+        input_manage_movement(&rd, &movement, &origin_offset, points, &cube_color);
         
         for (int i = 0; i < N_POINTS; i++) {
-            transform_cube_points(&Rx, &Ry, &Rz, rt, points, i);
+            transform_cube_points(&rd, rt, i);
         }
         
         // Rendering
-        // ------------------------------------------------------------------------- //
+        //~
         
         ClearBackground(BLACK);
         BeginDrawing();
         
         // Drawing the points
         for (int i = 0; i < N_POINTS; i++) {
-            shapes_point(points[i].x + origin.x, points[i].y + origin.y);
+            shapes_point(points[i].x + origin.x, points[i].y + origin.y, cube_color);
         }
         
-        // Algorithm to draw the edges
+        // Algorithm to draw the edges (order is set for this)
         for (int i = 0; i < 4; i++) {
             // FACE #1
-            shapes_connect(i, (i + 1) % 4,           points, origin.x, origin.y);
+            shapes_connect(i + 0, ((i + 1) % 4) + 0, points, origin.x, origin.y, cube_color);
             // FACE #2
-            shapes_connect(i + 4, ((i + 1) % 4) + 4, points, origin.x, origin.y);
+            shapes_connect(i + 4, ((i + 1) % 4) + 4, points, origin.x, origin.y, cube_color);
             // BETWEEN FACES
-            shapes_connect(i, i + 4,                 points, origin.x, origin.y);
+            shapes_connect(i + 0, i + 4,             points, origin.x, origin.y, cube_color);
         }
         
-        DebugAll(rt); // Only gets called if DEBUG_ALL is defined in settings
+        debug_all(rt, &rd, &origin); // Only gets called if DEBUG_ALL is defined in settings
         
         EndDrawing();
     }

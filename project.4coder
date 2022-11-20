@@ -1,11 +1,9 @@
 version(1);
-project_name = "Proyecto Internal Matematica NM";
+project_name = "Proyecto de Internal Matemática NM";
 
 patterns = {
     "*.c",
-    "*.cpp",
     "*.h",
-    "*.hpp",
     "*.bat",
     "*.4coder",
 };
@@ -18,10 +16,6 @@ load_paths_custom = {
 load_paths = {
     { { {".", .relative = true, .recursive = true } }, .os = "win"  },
 };
-
-build = "build.bat";
-run   = "run.bat";
-clean = "clean.bat";
 
 command_list = {
 	
